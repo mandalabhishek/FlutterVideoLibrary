@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:videolibrary/video.dart';
+import 'package:http/http.dart' as http;
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -7,6 +8,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {  
+
+  Future<http.Response> fetchPost() {
+  return http.get('https://jsonplaceholder.typicode.com/posts/1');
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -18,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Video('https://www.youtube.com/watch?v=I4gz14FhsiI'),
               Video('https://www.youtube.com/watch?v=WFlhcuYmKXw'),
               Video('https://www.youtube.com/watch?v=dKLDk-QvIJU'),
-              Video('https://www.youtube.com/watch?v=IW4o4WuRRO4')                            
+              Video('https://www.youtube.com/watch?v=IW4o4WuRRO4')                                          
             ],
           ),
         );
